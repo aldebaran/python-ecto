@@ -15,6 +15,7 @@ TOOLCHAIN_NAME := linux64
 ecto: qibuild_workspace
 	@cd qibuild_ws; qibuild configure -c $(TOOLCHAIN_NAME) --release ecto
 	@cd qibuild_ws; qibuild make -c $(TOOLCHAIN_NAME) -j $$((`nproc`-1)) ecto
+	@cd qibuild_ws; qibuild install -c $(TOOLCHAIN_NAME) ecto ../install
 
 # ──────────────────────
 # Fetch sources commands

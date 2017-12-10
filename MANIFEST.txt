@@ -1,2 +1,2 @@
 ecto_URI=https://github.com/aldebaran/ecto.git
-ecto_VERSION=0.6.12-r0
+ecto_VERSION=master
