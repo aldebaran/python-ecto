@@ -26,3 +26,11 @@ qibuild_workspace:
 	@[ -d qibuild_ws ] || mkdir -p qibuild_ws
 	@cd qibuild_ws; [ -d .qi ] || qibuild init
 	@cd qibuild_ws;for GIT_REPO in $(PROJECTS); do v=$$(cat ../$(MANIFEST) | grep "`echo $$GIT_REPO`_VERSION" | cut -d= -f2); u=$$(cat ../$(MANIFEST) | grep "`echo $$GIT_REPO`_URI" | cut -d= -f2); [ -d $$GIT_REPO ] || qisrc add -b $$v --src $$GIT_REPO $$u; done
+
+# ─────────
+# Packaging
+
+.PHONY: python_package
+
+python_package: ecto
+	@python setup.py bdist_wheel
